@@ -11,6 +11,13 @@
 [images]
   remote_images = ["https://.*"]
 
+# Redirect root to active page
+[[redirects]]
+  from = "/"
+  to = "/PORT. HENRIQUE/"
+  status = 301
+  force = true
+
 # Redirect www → apex
 [[redirects]]
   from = "https://www.example.com/*"

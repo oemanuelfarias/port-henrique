@@ -1,0 +1,981 @@
+:root {
+  /* Cores da Identidade Visual */
+  --color-primary-dark: #031D5E;
+  --color-primary: #10389B;
+  --color-primary-light: #1F60FF;
+  --color-blue-soft: #D0DEFF;
+  --color-blue-pale: #D1EAFF;
+  --color-white: #FFFFFF;
+  --color-accent: #FAC25A;
+
+  /* Fontes solicitadas (utilizando fallbacks) */
+  --font-heading: 'RCL Morland', 'Playfair Display', serif;
+  --font-body: 'Blauer Nue', 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-primary-dark);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+.hero-subtitle,
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Base text sizes */
+p {
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 18px;
+    /* Para textos compridos conforme regra */
+  }
+}
+
+.text-highlight {
+  color: var(--color-accent);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Helpers Adicionais RESPONSIVO */
+@media (max-width: 767px) {
+
+  p,
+  ul,
+  .acting-subtitle,
+  .partner-subtitle,
+  .reconstructions-subtitle {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.border-radius-shadow {
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(3, 29, 94, 0.15);
+  width: 100%;
+}
+
+.img-cover {
+  object-fit: cover;
+}
+
+/* ----- HERO SECTION ----- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* Imagem de fundo responsiva e overlay para contraste usando Netlify CDN (ou url pura no local) */
+  background-color: var(--color-primary-dark);
+  background-image: url('/.netlify/images?url=/images/DKT%20Dobra%2001.png&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+}
+
+/* Fallback para visualização local (sem CDN do Netlify) será substituído se necessário */
+@media (max-width: 767px) {
+  .hero {
+    background-image: url('/.netlify/images?url=/images/Slice%201%20Mobile.png&w=800&q=80');
+    background-position: top center;
+    background-size: 100% auto;
+    align-items: flex-end;
+    min-height: 110vh;
+    padding-top: 100vw;
+    padding-bottom: 80px;
+  }
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 680px;
+  /* metade da tela + responsividade */
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-container {
+    max-width: 420px;
+    margin-left: 0;
+  }
+
+  .hero-container .hero-subtitle,
+  .hero-container .hero-title,
+  .hero-container p {
+    text-align: left;
+    margin-left: 0;
+  }
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--color-blue-pale);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding-left: 16px;
+  border-left: 3px solid var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: 24px;
+    /* Para subtítulos pequenos textos */
+    margin-bottom: 28px;
+  }
+}
+
+.hero-title {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 40px;
+  }
+}
+
+a.cta-button.hero-cta {
+  display: inline-block;
+  width: auto;
+  min-width: 0;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/* ----- SECTION: ABOUT ----- */
+.about {
+  padding: 120px 0;
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-blue-pale) 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+}
+
+.about-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-image-column {
+  width: 100%;
+}
+
+.section-title {
+  font-size: 28px;
+  color: var(--color-primary-dark);
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary-light);
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 40px;
+  }
+}
+
+/* Card Formação */
+.education-card {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: 56px 48px;
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(3, 29, 94, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass/Gradient Accent Background inside Card */
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 60%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.education-title {
+  color: var(--color-white);
+  margin-bottom: 48px;
+}
+
+.education-title::after {
+  background-color: var(--color-accent);
+}
+
+.education-list {
+  list-style: none;
+  position: relative;
+  z-index: 1;
+}
+
+.education-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .education-list li {
+    font-size: 18px;
+    /* Conforme o pedido para pequenos textos */
+  }
+}
+
+.education-list li::before {
+  content: '➢';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-size: 18px;
+  line-height: inherit;
+}
+
+.education-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ----- AOS CUSTOM ANIMATIONS ----- */
+[data-aos] {
+  opacity: 0;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-property: opacity, transform;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(40px);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ----- SECTION 3: PERFIL DE ATUAÇÃO 1 ----- */
+.acting-profile {
+  padding: 120px 0;
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.acting-profile-content {
+  margin-bottom: 64px;
+}
+
+.text-white {
+  color: var(--color-white) !important;
+}
+
+.acting-subtitle {
+  color: var(--color-blue-soft);
+  max-width: 600px;
+}
+
+.acting-profile-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .acting-profile-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
+  }
+}
+
+.bento-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 32px;
+  color: var(--color-white);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 120px;
+}
+
+.bento-item h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.bento-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 24px rgba(250, 194, 90, 0.2);
+  border-color: var(--color-accent);
+}
+
+/* ----- SECTION 4: CONSULTÓRIOS PARCEIROS ----- */
+.partner-clinics {
+  padding: 120px 0;
+  background-color: var(--color-white);
+}
+
+.partner-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+@media (min-width: 992px) {
+  .partner-grid {
+    flex-direction: row;
+    gap: 80px;
+    align-items: stretch;
+  }
+}
+
+.partner-sticky-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+  .partner-sticky-col {
+    width: 40%;
+  }
+}
+
+.partner-subtitle {
+  color: var(--color-primary-dark);
+}
+
+.partner-image-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.partner-image {
+  border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(3, 29, 94, 0.15);
+  width: 100%;
+  height: auto;
+}
+
+.partner-scroll-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .partner-scroll-col {
+    width: 60%;
+  }
+}
+
+.scroll-card {
+  background: var(--color-white);
+  padding: 40px;
+  border-radius: 16px;
+  border-left: 4px solid var(--color-primary-light);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.scroll-card:hover {
+  transform: translateX(-5px);
+  box-shadow: 5px 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.scroll-number {
+  color: var(--color-primary-light);
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.scroll-card h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* ----- SECTION 5: RECONSTRUÇÕES E IMPLANTES ----- */
+.reconstructions-implants {
+  padding: 120px 0;
+  background-color: #F8FAFC;
+}
+
+.reconstructions-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+
+.reconstructions-subtitle {
+  color: var(--color-primary-dark);
+}
+
+.reconstructions-image-bottom {
+  margin-top: 64px;
+  width: 100%;
+}
+
+.reconstructions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.grid-2x3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-2x3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-2x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.recon-card {
+  background: var(--color-white);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(3, 29, 94, 0.08);
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 1024px) {
+  .protocol-card {
+    grid-column: 1 / -1;
+  }
+}
+
+.recon-card h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.clean-list {
+  list-style: none;
+  margin-top: 16px;
+}
+
+.clean-list li {
+  color: var(--color-primary);
+  font-size: 16px;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.clean-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ----- SECTION 6: OPÇÕES DE ANESTESIA ----- */
+.bg-solid-dark {
+  background-color: var(--color-primary-dark);
+  padding: 120px 0;
+}
+
+.anesthesia-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .anesthesia-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.anesthesia-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .anesthesia-grid-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.anesthesia-card {
+  background: var(--color-primary);
+  border: 4px solid rgba(255, 255, 255, 0.05);
+  padding: 48px 32px;
+  border-radius: 24px;
+  color: var(--color-white);
+  text-align: center;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .anesthesia-card {
+    border-width: 8px;
+  }
+}
+
+.anesthesia-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-blue-pale);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.anesthesia-badge.highlight {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+.anesthesia-card h3 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: 20px;
+}
+
+/* ----- SECTION 7: EQUIPAMENTOS DISPONIBILIZADOS ----- */
+.bg-light-soft {
+  background-color: var(--color-blue-pale);
+  background-image: linear-gradient(135deg, var(--color-white) 0%, var(--color-blue-pale) 100%);
+  padding: 120px 0;
+}
+
+.equipment-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .equipment-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.equipment-grid-2x3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .equipment-grid-2x3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .equipment-grid-2x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.equip-card {
+  background: var(--color-white);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(3, 29, 94, 0.08);
+  color: var(--color-primary-dark);
+}
+
+.equip-card h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ----- SECTION 8 & 9: DIFERENCIAIS E CONTATO ----- */
+.differentials-section {
+  padding: 120px 0;
+  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.differentials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/.netlify/images?url=/images/DKT%20Dobra%2008.png&w=800&q=80') left center/cover;
+  mix-blend-mode: soft-light;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.differentials-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .differentials-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.differentials-list {
+  list-style: none;
+  margin-top: 48px;
+}
+
+.differentials-list li {
+  color: var(--color-white);
+  font-size: 18px;
+  padding-left: 36px;
+  position: relative;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.differentials-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 20px;
+  background: rgba(250, 194, 90, 0.1);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.contact-section {
+  padding: 120px 0;
+  background: var(--color-primary-dark);
+  position: relative;
+}
+
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .contact-split {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+  }
+}
+
+.left-aligned-card {
+  margin-left: 0;
+}
+
+.contact-glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 56px 40px;
+  border-radius: 24px;
+  color: var(--color-white);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.contact-details {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.contact-details p {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--color-blue-pale);
+}
+
+.contact-details strong {
+  margin-right: 8px;
+  color: var(--color-white);
+}
+
+.contact-details a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-details a:hover {
+  color: var(--color-accent);
+}
+
+.cta-button {
+  display: block;
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  transition: transform 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+.pulse-anim {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(250, 194, 90, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(250, 194, 90, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(250, 194, 90, 0);
+  }
+}
+
+/* ----- SECTION 10: GALERIA ----- */
+.gallery-section {
+  padding: 120px 0;
+  background-color: var(--color-white);
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.gallery-item {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(3, 29, 94, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(3, 29, 94, 0.15);
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile Image Rearrangements */
+@media (max-width: 991px) {
+
+  /* Section 3: Perfil de Atuação 1 */
+  .acting-profile-split .acting-image-col {
+    order: 2;
+  }
+
+  .acting-profile-split .acting-content-col {
+    order: 1;
+  }
+
+  /* Section 4: Consultórios Parceiros */
+  .partner-sticky-col {
+    display: contents;
+  }
+
+  .partner-sticky-col>.section-title {
+    order: 1;
+    margin-bottom: 16px;
+  }
+
+  .partner-sticky-col>.partner-subtitle {
+    order: 2;
+    margin-bottom: 0px;
+  }
+
+  .partner-scroll-col {
+    order: 3;
+  }
+
+  .partner-image-wrapper {
+    order: 4;
+    margin-top: 0;
+  }
+
+  /* Section 6: Opções de Anestesia */
+  .anesthesia-split .anesthesia-image-col {
+    order: 2;
+  }
+
+  .anesthesia-split .anesthesia-content-col {
+    order: 1;
+  }
+}

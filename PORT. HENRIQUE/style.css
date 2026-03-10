@@ -934,6 +934,71 @@ a.cta-button.hero-cta {
   display: block;
 }
 
+/* Modal Desktop Interaction */
+@media (min-width: 1024px) {
+  .gallery-item {
+    cursor: pointer;
+  }
+}
+
+/* Modal Galeria Estilos */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(3, 29, 94, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.gallery-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+.gallery-modal.show .gallery-modal-content {
+  transform: scale(1);
+}
+
+.gallery-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 56px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 10000;
+}
+
+.gallery-modal-close:hover,
+.gallery-modal-close:focus {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
 /* Mobile Image Rearrangements */
 @media (max-width: 991px) {
 
